@@ -30,7 +30,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">5</stringProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
         <stringProp name="ThreadGroup.ramp_time">1</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -184,8 +184,131 @@
           </ResponseAssertion>
           <hashTree/>
         </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="C2-Cost-per-Distance-GetReq" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">servicesunt2.intra.schneider.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/decisiontech-costing-costperdistance-service-server/sayHello</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">OAMAuthnCookie_servicesunt2.intra.schneider.com:443=${OAMAuthnCookie}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="69609650">Hello</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="C2-Cost-per-Distance-VANTL-PostReq" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">[{&#xd;
+        &quot;lineOfBusiness&quot;: &quot;VANTL&quot;,&#xd;
+        &quot;currencyConversionDate&quot;: &quot;2019-04-08T22:40:19.209-05:00&quot;,&#xd;
+        &quot;distanceUOM&quot;: &quot;MI&quot;,&#xd;
+        &quot;requestKey&quot;: &quot;3000067809-VANTL VTLSOLO-VTLSOLO-1554781219208&quot;,&#xd;
+        &quot;executionType&quot;: &quot;VTLSOLO&quot;,&#xd;
+        &quot;costingType&quot;: &quot;CTBRN&quot;,&#xd;
+        &quot;capabilityType&quot;: &quot;VTLSOLO&quot;,&#xd;
+        &quot;processType&quot;: &quot;OPT&quot;,&#xd;
+        &quot;standardNonMexDistance&quot;: {&#xd;
+            &quot;unitOfDistance&quot;: &quot;MI&quot;,&#xd;
+            &quot;amount&quot;: 112&#xd;
+        },&#xd;
+        &quot;required&quot;: true,&#xd;
+        &quot;nonMexicoTankWashDistance&quot;: {&#xd;
+            &quot;unitOfDistance&quot;: &quot;MI&quot;,&#xd;
+            &quot;amount&quot;: 50&#xd;
+        }&#xd;
+    },&#xd;
+    {&#xd;
+        &quot;lineOfBusiness&quot;: &quot;VANTL&quot;,&#xd;
+        &quot;currencyConversionDate&quot;: &quot;2019-04-08T22:40:19.22-05:00&quot;,&#xd;
+        &quot;distanceUOM&quot;: &quot;MI&quot;,&#xd;
+        &quot;requestKey&quot;: &quot;3000067809-VANTL VTLTEAM-VTLTEAM-1554781219219&quot;,&#xd;
+        &quot;executionType&quot;: &quot;VTLTEAM&quot;,&#xd;
+        &quot;costingType&quot;: &quot;CTBRN&quot;,&#xd;
+        &quot;capabilityType&quot;: &quot;VTLTEAM&quot;,&#xd;
+        &quot;processType&quot;: &quot;OPT&quot;,&#xd;
+        &quot;standardNonMexDistance&quot;: {&#xd;
+            &quot;unitOfDistance&quot;: &quot;MI&quot;,&#xd;
+            &quot;amount&quot;: 112&#xd;
+        },&#xd;
+        &quot;required&quot;: true,&#xd;
+        &quot;nonMexicoTankWashDistance&quot;: {&#xd;
+            &quot;unitOfDistance&quot;: &quot;MI&quot;,&#xd;
+            &quot;amount&quot;: 60&#xd;
+        }&#xd;
+    }&#xd;
+]</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">servicesunt2.intra.schneider.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/api/decisiontech-costing-costperdistance-service-server/cost</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Cookie</stringProp>
+                <stringProp name="Header.value">OAMAuthnCookie_servicesunt2.intra.schneider.com:443=${OAMAuthnCookie}</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2127">C2</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
