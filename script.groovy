@@ -1,4 +1,5 @@
-   agent any
+pipeline {
+    agent any
     stages {
         stage('Checkout') {
             steps {
@@ -7,7 +8,7 @@
             }
         }
     }
-
+}
 
 node {
    stage 'Run JMeter Test'
