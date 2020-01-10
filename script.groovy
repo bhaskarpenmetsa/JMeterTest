@@ -1,4 +1,4 @@
-def path="D:\"
+def path="D:/"
 def url="https://github.com/bhaskarpenmetsa/JMeterTest.git"
 def branch="master"
 def checkoutGitRepository(path, url, branch, credentialsId = null, poll = true, timeout = 10, depth = 0){
