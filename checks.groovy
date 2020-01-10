@@ -1,21 +1,4 @@
-def path="D:/"
-def url="https://github.com/bhaskarpenmetsa/JMeterTest.git"
-def branch="master"
-def checkoutGitRepository(path, url, branch, credentialsId = null, poll = true, timeout = 10, depth = 0){
-    dir(path) {
-        checkout(
-            changelog:true,
-            poll: poll,
-            scm: [
-                $class: 'GitSCM',
-                branches: [[name: "*/${branch}"]],
-            doGenerateSubmoduleConfigurations: false,
-            extensions: [
-                [$class: 'CheckoutOption', timeout: timeout],
-                [$class: 'CloneOption', depth: depth, noTags: false, reference: '', shallow: depth > 0, timeout: timeout]],
-            submoduleCfg: [],
-            userRemoteConfigs: [[url: url, credentialsId: credentialsId]]]
-        )
-        bat(returnStdout: true, script: 'git rev-parse HEAD').trim()
-    }
+node {
+   stage 'Run JMeterTest'
+   bat 'D:/Jmeter/apache-jmeter-4.0/bin/jmeter.bat -n -t D:/price/flightbooking1.jmx -l D:/price/test.jtl'
 }
